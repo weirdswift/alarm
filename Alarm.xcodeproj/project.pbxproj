@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F32656F71C1F1B53000370FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32656F61C1F1B53000370FB /* MainViewController.swift */; };
 		F3DED98E1C1F10E600F44183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DED98D1C1F10E600F44183 /* AppDelegate.swift */; };
-		F3DED9901C1F10E600F44183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DED98F1C1F10E600F44183 /* ViewController.swift */; };
 		F3DED9931C1F10E600F44183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9911C1F10E600F44183 /* Main.storyboard */; };
 		F3DED9951C1F10E600F44183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9941C1F10E600F44183 /* Assets.xcassets */; };
 		F3DED9981C1F10E600F44183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9961C1F10E600F44183 /* LaunchScreen.storyboard */; };
@@ -34,9 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F32656F61C1F1B53000370FB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3DED98A1C1F10E600F44183 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DED98D1C1F10E600F44183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3DED98F1C1F10E600F44183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3DED9921C1F10E600F44183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3DED9941C1F10E600F44183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3DED9971C1F10E600F44183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F32656F31C1F1B1B000370FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = ../../alarm/Alarm/Model;
+			sourceTree = "<group>";
+		};
+		F32656F41C1F1B23000370FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = ../../alarm/Alarm/View;
+			sourceTree = "<group>";
+		};
+		F32656F51C1F1B2C000370FB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F32656F61C1F1B53000370FB /* MainViewController.swift */,
+			);
+			name = Controller;
+			path = ../../alarm/Alarm/Controller;
+			sourceTree = "<group>";
+		};
 		F3DED9811C1F10E600F44183 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +122,10 @@
 		F3DED98C1C1F10E600F44183 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				F32656F51C1F1B2C000370FB /* Controller */,
+				F32656F41C1F1B23000370FB /* View */,
+				F32656F31C1F1B1B000370FB /* Model */,
 				F3DED98D1C1F10E600F44183 /* AppDelegate.swift */,
-				F3DED98F1C1F10E600F44183 /* ViewController.swift */,
 				F3DED9911C1F10E600F44183 /* Main.storyboard */,
 				F3DED9941C1F10E600F44183 /* Assets.xcassets */,
 				F3DED9961C1F10E600F44183 /* LaunchScreen.storyboard */,
@@ -256,8 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3DED9901C1F10E600F44183 /* ViewController.swift in Sources */,
 				F3DED98E1C1F10E600F44183 /* AppDelegate.swift in Sources */,
+				F32656F71C1F1B53000370FB /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +511,7 @@
 				F3DED9B41C1F10E700F44183 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F3DED9B51C1F10E700F44183 /* Build configuration list for PBXNativeTarget "AlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +520,7 @@
 				F3DED9B71C1F10E700F44183 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F3DED9B81C1F10E700F44183 /* Build configuration list for PBXNativeTarget "AlarmUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +529,7 @@
 				F3DED9BA1C1F10E700F44183 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
