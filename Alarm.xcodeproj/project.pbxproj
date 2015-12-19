@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F32656F71C1F1B53000370FB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32656F61C1F1B53000370FB /* MainViewController.swift */; };
+		F37A0BB11C25949200257DC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A0BB01C25949200257DC9 /* MainViewController.swift */; };
 		F3DED98E1C1F10E600F44183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DED98D1C1F10E600F44183 /* AppDelegate.swift */; };
 		F3DED9931C1F10E600F44183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9911C1F10E600F44183 /* Main.storyboard */; };
 		F3DED9951C1F10E600F44183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9941C1F10E600F44183 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F32656F61C1F1B53000370FB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F37A0BB01C25949200257DC9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3DED98A1C1F10E600F44183 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DED98D1C1F10E600F44183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DED9921C1F10E600F44183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		F32656F51C1F1B2C000370FB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F32656F61C1F1B53000370FB /* MainViewController.swift */,
+				F37A0BB01C25949200257DC9 /* MainViewController.swift */,
 			);
 			name = Controller;
 			path = ../../alarm/Alarm/Controller;
@@ -284,7 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DED98E1C1F10E600F44183 /* AppDelegate.swift in Sources */,
-				F32656F71C1F1B53000370FB /* MainViewController.swift in Sources */,
+				F37A0BB11C25949200257DC9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
