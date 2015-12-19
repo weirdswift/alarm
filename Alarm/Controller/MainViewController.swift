@@ -5,6 +5,7 @@
 //  Created by ShinSheungmin on 12/15/15.
 //  Copyright © 2015 HappyEngineer. All rights reserved.
 //
+// swiftlint:disable line_length
 
 import UIKit
 
@@ -20,7 +21,7 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
