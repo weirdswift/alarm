@@ -11,7 +11,8 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class MainViewController: UICollectionViewController {
-
+    let alarmManagerInstance = AlarmManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,8 +51,7 @@ class MainViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return alarmManagerInstance.numberOfSectionsInMainCollectionView
     }
 
 
@@ -64,6 +64,7 @@ class MainViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
         // Configure the cell
+        cell.backgroundColor = UIColor.whiteColor()
         
         return cell
     }
@@ -100,7 +101,15 @@ class MainViewController: UICollectionViewController {
     */
 }
 
-//MARK: - private method
+// MARK: -
+extension MainViewController {
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+    }
+}
+
+
+// MARK: - private method
 extension MainViewController {
     func registerCollectionViewCell() {
         collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
