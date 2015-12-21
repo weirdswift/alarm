@@ -16,8 +16,9 @@ class AlarmManagerTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        alarmManagerSharedInstance.alarmItems.removeAll()
     }
     
     func testInstanceAlarmManagerIsNotNil() {
@@ -28,5 +29,16 @@ class AlarmManagerTests: XCTestCase {
         let numberOfSectionsInMainViewController_is_One = 1
         let numberOfSections = alarmManagerSharedInstance.numberOfSectionsInMainCollectionView
         XCTAssertEqual(numberOfSections, numberOfSectionsInMainViewController_is_One, "MainViewController collectionView numberOfSections value is wrong, please check")
+    }
+    
+    func testTotalAlarmItemsCountCheck() {
+        let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
+        XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
+    }
+    
+    func testTotalAlarmItemsCountCheckAddOne() {
+        alarmManagerSharedInstance.alarmItems.append(AlarmItem())
+        let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
+        XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
     }
 }
