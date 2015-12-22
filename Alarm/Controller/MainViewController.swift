@@ -8,28 +8,27 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "AlarmCollectionViewCell"
 
 class MainViewController: UICollectionViewController {
     let alarmManagerInstance = AlarmManager.sharedInstance
+    let marginValue: CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
         registerCollectionViewCell()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = CGSizeMake(CGRectGetWidth(self.view.frame), 50)
+            layout.itemSize = CGSizeMake(CGRectGetWidth(self.view.frame) - marginValue * 2, 70)
         }
     }
 
@@ -47,70 +46,42 @@ class MainViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
-    // MARK: UICollectionViewDataSource
 
+// MARK: - UICollectionViewDataSource
+
+extension MainViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return alarmManagerInstance.numberOfSectionsInMainCollectionView
     }
-
-
+    
+    
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return alarmManagerInstance.totalAlarmItems
     }
-
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
-    
-        // Configure the cell
-        cell.backgroundColor = UIColor.whiteColor()
         
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
 }
 
-// MARK: -
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
 extension MainViewController {
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: marginValue, left: 0, bottom: marginValue, right: 0)
     }
 }
 
 
 // MARK: - private method
+
 extension MainViewController {
     func registerCollectionViewCell() {
-        collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView!.registerNib(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
 }
