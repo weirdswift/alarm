@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC42C35D1C3201410013039C /* AlarmData.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC42C35C1C3201410013039C /* AlarmData.plist */; };
 		F373CA7E1C29857E00207198 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F373CA7D1C29857E00207198 /* AlarmCollectionViewCell.swift */; };
 		F373CA801C2988FE00207198 /* AlarmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F373CA7F1C2988FE00207198 /* AlarmCollectionViewCell.xib */; };
 		F37A0BB11C25949200257DC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A0BB01C25949200257DC9 /* MainViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC42C35C1C3201410013039C /* AlarmData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AlarmData.plist; sourceTree = "<group>"; };
 		F373CA7D1C29857E00207198 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		F373CA7F1C2988FE00207198 /* AlarmCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlarmCollectionViewCell.xib; sourceTree = "<group>"; };
 		F37A0BB01C25949200257DC9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				F3DED9941C1F10E600F44183 /* Assets.xcassets */,
 				F3DED9961C1F10E600F44183 /* LaunchScreen.storyboard */,
 				F3DED9991C1F10E600F44183 /* Info.plist */,
+				EC42C35C1C3201410013039C /* AlarmData.plist */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC42C35D1C3201410013039C /* AlarmData.plist in Resources */,
 				F373CA801C2988FE00207198 /* AlarmCollectionViewCell.xib in Resources */,
 				F3DED9981C1F10E600F44183 /* LaunchScreen.storyboard in Resources */,
 				F3DED9951C1F10E600F44183 /* Assets.xcassets in Resources */,

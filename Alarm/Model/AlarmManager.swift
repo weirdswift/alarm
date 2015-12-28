@@ -9,7 +9,15 @@
 import Foundation
 
 struct AlarmItem {
+    var description: String?
+    var turnOn: Bool
+    var deadLine: NSDate
     
+    init(description: String?, turnOn: Bool, deadLine: NSDate) {
+        self.description = description
+        self.turnOn = turnOn
+        self.deadLine = deadLine
+    }
 }
 
 class AlarmManager {
