@@ -15,7 +15,6 @@
 		F3DED9931C1F10E600F44183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9911C1F10E600F44183 /* Main.storyboard */; };
 		F3DED9951C1F10E600F44183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9941C1F10E600F44183 /* Assets.xcassets */; };
 		F3DED9981C1F10E600F44183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DED9961C1F10E600F44183 /* LaunchScreen.storyboard */; };
-		F3DED9A31C1F10E600F44183 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DED9A21C1F10E600F44183 /* AlarmTests.swift */; };
 		F3DED9AE1C1F10E700F44183 /* AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DED9AD1C1F10E700F44183 /* AlarmUITests.swift */; };
 		F3ED4E551C266F5A002BA0E7 /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED4E541C266F5A002BA0E7 /* AlarmManager.swift */; };
 		F3ED4E571C2671C6002BA0E7 /* AlarmManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ED4E561C2671C6002BA0E7 /* AlarmManagerTests.swift */; };
@@ -51,7 +50,6 @@
 		F3DED9971C1F10E600F44183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3DED9991C1F10E600F44183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DED99E1C1F10E600F44183 /* AlarmTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3DED9A21C1F10E600F44183 /* AlarmTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTests.swift; sourceTree = "<group>"; };
 		F3DED9A41C1F10E600F44183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DED9A91C1F10E600F44183 /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DED9AD1C1F10E700F44183 /* AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUITests.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 		F3DED9A11C1F10E600F44183 /* AlarmTests */ = {
 			isa = PBXGroup;
 			children = (
-				F3DED9A21C1F10E600F44183 /* AlarmTests.swift */,
 				F3ED4E561C2671C6002BA0E7 /* AlarmManagerTests.swift */,
 				F3DED9A41C1F10E600F44183 /* Info.plist */,
 			);
@@ -312,7 +309,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3DED9A31C1F10E600F44183 /* AlarmTests.swift in Sources */,
 				F3ED4E571C2671C6002BA0E7 /* AlarmManagerTests.swift in Sources */,
 				F3ED4E581C2672C2002BA0E7 /* AlarmManager.swift in Sources */,
 			);
