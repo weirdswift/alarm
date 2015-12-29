@@ -37,7 +37,14 @@ class AlarmManagerTests: XCTestCase {
     }
     
     func testTotalAlarmItemsCountCheckAddOne() {
-        alarmManagerSharedInstance.alarmItems.append(AlarmItem())
+        let description = "Test alarm description"
+        let turnOn = true
+        let dateAsString = "24-12-2015 23:59"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        let deadLine = dateFormatter.dateFromString(dateAsString)!
+        
+        alarmManagerSharedInstance.alarmItems.append(AlarmItem(description: description, turnOn: turnOn, deadLine: deadLine))
         let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
         XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
     }
