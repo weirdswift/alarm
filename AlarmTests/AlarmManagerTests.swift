@@ -13,12 +13,15 @@ class AlarmManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        alarmManagerSharedInstance.createAlarmItemsFile()
     }
     
     override func tearDown() {
         super.tearDown()
         
         alarmManagerSharedInstance.alarmItems.removeAll()
+        alarmManagerSharedInstance.removeAlarmItemsFile()
     }
     
     func testInstanceAlarmManagerIsNotNil() {
@@ -41,4 +44,10 @@ class AlarmManagerTests: XCTestCase {
         let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
         XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
     }
+    
+    func testShouldAlarmItemsFileExist() {
+        let filePath = alarmManagerSharedInstance.filePath
+
+        XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(filePath), "Alarm items file should exist.")
+    }    
 }
