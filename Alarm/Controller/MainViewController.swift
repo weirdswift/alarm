@@ -5,7 +5,6 @@
 //  Created by ShinSheungmin on 12/15/15.
 //  Copyright © 2015 HappyEngineer. All rights reserved.
 //
-// swiftlint:disable line_length
 
 import UIKit
 
