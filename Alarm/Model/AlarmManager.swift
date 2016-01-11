@@ -62,6 +62,11 @@ extension AlarmManager {
             if fileManager.fileExistsAtPath(plistPath) {
                 return true
             } else {
+                let alarmDatas = [AlarmItem]()
+                NSKeyedArchiver.archivedDataWithRootObject(alarmDatas).writeToFile(plistPath, atomically: true)
+                if fileManager.fileExistsAtPath(plistPath) {
+                    return true
+                }
                 return false
             }
         }
