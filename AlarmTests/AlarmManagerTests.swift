@@ -48,4 +48,19 @@ class AlarmManagerTests: XCTestCase {
         let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
         XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
     }
+    
+    func testPListFileDelete() {
+        let plistFileExist = alarmManagerSharedInstance.deletePListFile()
+        XCTAssert(plistFileExist, "PList file delete is failed.")
+    }
+    
+    func testPListFileCreate() {
+        let pListFileExist = alarmManagerSharedInstance.createPListFile()
+        XCTAssert(pListFileExist, "PList file create is failed.")
+    }
+    
+    func testPListFileCheckForExist() {
+        let plistFileExis = alarmManagerSharedInstance.checkPListFile()
+        XCTAssert(plistFileExis, "PList file is not existance")
+    }
 }
