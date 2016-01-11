@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Foundation
 
 class AlarmManagerTests: XCTestCase {
     let alarmManagerSharedInstance = AlarmManager.sharedInstance
@@ -44,23 +45,69 @@ class AlarmManagerTests: XCTestCase {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let deadLine = dateFormatter.dateFromString(dateAsString)!
         
-        alarmManagerSharedInstance.alarmItems.append(AlarmItem(description: description, turnOn: turnOn, deadLine: deadLine))
+        alarmManagerSharedInstance.alarmItems.append(AlarmItem(title: description, turnOn: turnOn, deadLine: deadLine))
         let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
         XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
     }
     
+    func deletePListFile() -> Bool {
+        let plistFile = alarmManagerSharedInstance.plistFile
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as NSString? {
+            let plistPath = documentsDirectory.stringByAppendingPathComponent(plistFile)
+            
+            let fileManager = NSFileManager.defaultManager()
+            if fileManager.fileExistsAtPath(plistPath) {
+                fileManager.delete(nil)
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func createPListFile() -> Bool {
+        let plistFile = alarmManagerSharedInstance.plistFile
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as NSString? {
+            let plistPath = documentsDirectory.stringByAppendingPathComponent(plistFile)
+            
+            let fileManager = NSFileManager.defaultManager()
+            if fileManager.fileExistsAtPath(plistPath) {
+                do {
+                    try fileManager.removeItemAtPath(plistPath as String)
+                } catch {
+                    XCTFail("PList file can removed. Can't test progressing.")
+                }
+            }
+            
+            let alarmTestArray: NSArray = [
+                AlarmItem(title: "alarmItem1", turnOn: true, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem2", turnOn: false, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem3", turnOn: true, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem4", turnOn: false, deadLine: NSDate())
+            ]
+            
+            return NSKeyedArchiver.archivedDataWithRootObject(alarmTestArray).writeToFile(plistPath, atomically: true)
+        } else {
+            return false
+        }
+    }
+    
     func testPListFileDelete() {
-        let plistFileExist = alarmManagerSharedInstance.deletePListFile()
-        XCTAssert(plistFileExist, "PList file delete is failed.")
+        if createPListFile() {
+            let plistFileExist = alarmManagerSharedInstance.deletePListFile()
+            XCTAssert(plistFileExist, "PList file delete is failed.")
+        } else {
+            XCTFail("PList file is not created. Can't test progressing.")
+        }
     }
     
-    func testPListFileCreate() {
-        let pListFileExist = alarmManagerSharedInstance.createPListFile()
-        XCTAssert(pListFileExist, "PList file create is failed.")
-    }
+//    func testPListFileCreate() {
+//        let pListFileExist = alarmManagerSharedInstance.createPListFile()
+//        XCTAssert(pListFileExist, "PList file create is failed.")
+//    }
     
-    func testPListFileCheckForExist() {
-        let plistFileExis = alarmManagerSharedInstance.checkPListFile()
-        XCTAssert(plistFileExis, "PList file is not existance")
-    }
+//    func testPListFileCheckForExist() {
+//        let plistFileExis = alarmManagerSharedInstance.checkPListFile()
+//        XCTAssert(plistFileExis, "PList file is not existance")
+//    }
 }
