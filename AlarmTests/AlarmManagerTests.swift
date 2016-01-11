@@ -66,8 +66,13 @@ class AlarmManagerTests: XCTestCase {
                 }
             }
             
-            let alarmTestArray = [AlarmItem]()
-            return NSKeyedArchiver.archivedDataWithRootObject(alarmTestArray).writeToFile(plistPath, atomically: true)
+            let alarmTestArray = [
+                AlarmItem(title: "alarmItem1", turnOn: true, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem2", turnOn: false, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem3", turnOn: true, deadLine: NSDate()),
+                AlarmItem(title: "alarmItem4", turnOn: false, deadLine: NSDate())
+            ]
+            return NSKeyedArchiver.archiveRootObject(alarmTestArray, toFile: plistPath)
         } else {
             return false
         }
@@ -130,6 +135,14 @@ class AlarmManagerTests: XCTestCase {
         } else {
             XCTFail("Pre-condition error was happened.")
         }
-        
+    }
+    
+    func testReadPListFile() {
+        if createPListFile() &&
+        alarmManagerSharedInstance.checkPListFile() {
+            XCTAssertEqual(alarmManagerSharedInstance.readPListFile(), 4, "PList alarm datas count are different.")
+        } else {
+            XCTFail("Pre-condition error was happened.")
+        }
     }
 }

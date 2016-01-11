@@ -63,7 +63,7 @@ extension AlarmManager {
                 return true
             } else {
                 let alarmDatas = [AlarmItem]()
-                NSKeyedArchiver.archivedDataWithRootObject(alarmDatas).writeToFile(plistPath, atomically: true)
+                NSKeyedArchiver.archiveRootObject(alarmDatas, toFile: plistPath)
                 if fileManager.fileExistsAtPath(plistPath) {
                     return true
                 }
@@ -109,5 +109,17 @@ extension AlarmManager {
         }
         
         return false
+    }
+    
+    func readPListFile() -> Int {
+        if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as NSString? {
+            let plistPath = documentsDirectory.stringByAppendingPathComponent(plistFile)
+            
+            if let alarmDatas = NSKeyedUnarchiver.unarchiveObjectWithFile(plistPath) as? [AlarmItem] {
+                alarmItems = alarmDatas
+            }
+            
+        }
+        return alarmItems.count
     }
 }
