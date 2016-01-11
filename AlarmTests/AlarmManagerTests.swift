@@ -116,8 +116,20 @@ class AlarmManagerTests: XCTestCase {
         }
     }
     
-//    func testPListFileCheckForExist() {
-//        let plistFileExis = alarmManagerSharedInstance.checkPListFile()
-//        XCTAssert(plistFileExis, "PList file is not existance")
-//    }
+    func testPListFileCheckForExist() {
+        if createPListFile() {
+            let plistFileExis = alarmManagerSharedInstance.checkPListFile()
+            XCTAssert(plistFileExis, "PList file should exist.")
+        } else {
+            XCTFail("Pre-condition error was happened.")
+        }
+        
+        if deletePListFile() {
+            let plistFileExis = alarmManagerSharedInstance.checkPListFile()
+            XCTAssert(!plistFileExis, "PList file should not exist.")
+        } else {
+            XCTFail("Pre-condition error was happened.")
+        }
+        
+    }
 }

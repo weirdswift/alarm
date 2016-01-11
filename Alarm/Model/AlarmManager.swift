@@ -98,7 +98,7 @@ extension AlarmManager {
     
     func checkPListFile() -> Bool {
         if let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as NSString? {
-            let plistPath = documentsDirectory.stringByAppendingString(plistFile)
+            let plistPath = documentsDirectory.stringByAppendingPathComponent(plistFile)
             let fileManager = NSFileManager.defaultManager()
             
             if fileManager.fileExistsAtPath(plistPath) {
