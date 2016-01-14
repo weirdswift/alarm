@@ -10,6 +10,7 @@ import XCTest
 
 class AlarmManagerTests: XCTestCase {
     let alarmManagerSharedInstance = AlarmManager.sharedInstance
+    var plistName = AlarmManager.sharedInstance.plistName
     
     override func setUp() {
         super.setUp()
@@ -17,8 +18,9 @@ class AlarmManagerTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        
+        deletePlist()
         alarmManagerSharedInstance.alarmItems.removeAll()
+        
     }
     
     func testInstanceAlarmManagerIsNotNil() {
@@ -37,8 +39,50 @@ class AlarmManagerTests: XCTestCase {
     }
     
     func testTotalAlarmItemsCountCheckAddOne() {
-        alarmManagerSharedInstance.alarmItems.append(AlarmItem())
+        
+        alarmManagerSharedInstance.alarmItems.append(AlarmItem(title: "Tmp Title", active: false, date: NSDate()))
         let arrayAlarmItemsCount = alarmManagerSharedInstance.alarmItems.count + 1
         XCTAssertEqual(arrayAlarmItemsCount, alarmManagerSharedInstance.totalAlarmItems, "TotalAlarmItems count is wrong, please check")
+    }
+    
+    func createPlist() {
+        // Given
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fullPathName = documentDirectory.stringByAppendingString(plistName)
+        let fileManager = NSFileManager.defaultManager()
+        
+        // When
+        if !fileManager.fileExistsAtPath(fullPathName) {
+            fileManager.createFileAtPath(fullPathName, contents: nil, attributes: nil)
+        }
+        
+        // Then
+        XCTAssertTrue(fileManager.fileExistsAtPath(fullPathName), "Create Fail")
+    }
+    
+    func deletePlist() {
+        // Given
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let fullPathName = documentDirectory.stringByAppendingString(plistName)
+        let fileManager = NSFileManager.defaultManager()
+        
+        // When
+        if fileManager.fileExistsAtPath(fullPathName) {
+            do {
+                try fileManager.removeItemAtPath(fullPathName)
+            } catch {
+                XCTFail("Delete Fail..")
+            }
+        } else {
+            
+        }
+        
+        // Then
+        XCTAssertTrue(!fileManager.fileExistsAtPath(fullPathName), "Delete Fail")
+    }
+    
+    func testAlarmAddCheck() {
+        // Given When then
+        XCTAssertTrue(!AlarmManager.sharedInstance.addPlistItem("Tmp Title", active: true, date: NSDate()), "Create")
     }
 }
